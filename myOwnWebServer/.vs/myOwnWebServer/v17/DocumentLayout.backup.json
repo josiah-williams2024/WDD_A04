@@ -1,0 +1,114 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{67956EFD-2680-483C-BC8C-3D52E07B6E71}|myOwnWebServer\\myOwnWebServer.csproj|c:\\users\\josia\\onedrive\\desktop\\tempsource\\myownwebserver\\myownwebserver\\responseworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67956EFD-2680-483C-BC8C-3D52E07B6E71}|myOwnWebServer\\myOwnWebServer.csproj|solutionrelative:myownwebserver\\responseworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67956EFD-2680-483C-BC8C-3D52E07B6E71}|myOwnWebServer\\myOwnWebServer.csproj|c:\\users\\josia\\onedrive\\desktop\\tempsource\\myownwebserver\\myownwebserver\\mainprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67956EFD-2680-483C-BC8C-3D52E07B6E71}|myOwnWebServer\\myOwnWebServer.csproj|solutionrelative:myownwebserver\\mainprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|myOwnWebServer||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67956EFD-2680-483C-BC8C-3D52E07B6E71}|myOwnWebServer\\myOwnWebServer.csproj|c:\\users\\josia\\onedrive\\desktop\\tempsource\\myownwebserver\\myownwebserver\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67956EFD-2680-483C-BC8C-3D52E07B6E71}|myOwnWebServer\\myOwnWebServer.csproj|solutionrelative:myownwebserver\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67956EFD-2680-483C-BC8C-3D52E07B6E71}|myOwnWebServer\\myOwnWebServer.csproj|c:\\users\\josia\\onedrive\\desktop\\tempsource\\myownwebserver\\myownwebserver\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67956EFD-2680-483C-BC8C-3D52E07B6E71}|myOwnWebServer\\myOwnWebServer.csproj|solutionrelative:myownwebserver\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67956EFD-2680-483C-BC8C-3D52E07B6E71}|myOwnWebServer\\myOwnWebServer.csproj|c:\\users\\josia\\onedrive\\desktop\\tempsource\\myownwebserver\\myownwebserver\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|6185191f-1008-4fb2-a715-3a4e4f27e610"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "myOwnWebServer",
+              "DocumentMoniker": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\myOwnWebServer.csproj",
+              "RelativeDocumentMoniker": "myOwnWebServer\\myOwnWebServer.csproj",
+              "ToolTip": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\myOwnWebServer.csproj",
+              "RelativeToolTip": "myOwnWebServer\\myOwnWebServer.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-27T20:04:32.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\Logger.cs",
+              "RelativeDocumentMoniker": "myOwnWebServer\\Logger.cs",
+              "ToolTip": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\Logger.cs",
+              "RelativeToolTip": "myOwnWebServer\\Logger.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T18:46:35.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Server.cs",
+              "DocumentMoniker": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\Server.cs",
+              "RelativeDocumentMoniker": "myOwnWebServer\\Server.cs",
+              "ToolTip": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\Server.cs",
+              "RelativeToolTip": "myOwnWebServer\\Server.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T18:31:14.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ResponseWorker.cs",
+              "DocumentMoniker": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\ResponseWorker.cs",
+              "RelativeDocumentMoniker": "myOwnWebServer\\ResponseWorker.cs",
+              "ToolTip": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\ResponseWorker.cs",
+              "RelativeToolTip": "myOwnWebServer\\ResponseWorker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T18:31:04.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainProgram.cs",
+              "DocumentMoniker": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\MainProgram.cs",
+              "RelativeDocumentMoniker": "myOwnWebServer\\MainProgram.cs",
+              "ToolTip": "C:\\Users\\josia\\OneDrive\\Desktop\\tempSource\\myOwnWebServer\\myOwnWebServer\\MainProgram.cs",
+              "RelativeToolTip": "myOwnWebServer\\MainProgram.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAgwBQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T18:28:13.253Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
