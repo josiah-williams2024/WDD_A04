@@ -7,23 +7,20 @@
 // Name               : Logger.cs
 // Purpose            : This is where the logging functionality will be handled.
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace myOwnWebServer
 {
     internal class Logger
     {
-        //Log file name
+        //Class Variable for Log file name
         string fileName = "myOwnWebServer.log";
+
         /// <summary>
         /// A method to log message to file with timestamp, type and mesage
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="type"></param>
+        /// <param name="message">Message to be logged</param>
+        /// <param name="type">Type of Log Status</param>
         public void LogMessage(string message, string type)
         {
             string timeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -40,43 +37,38 @@ namespace myOwnWebServer
         /// <summary>
         /// A method to log error messages
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">Message to be logged</param>
         public void LogError(string message)
         {
-            LogMessage(message, "ERROR");
+            LogMessage(message, "ERROR"); //Add Type of Log to Message
         }
         /// <summary>
         /// A method to log server start messages
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">Message to be logged</param>
         public void LogServerStart(string message)
         {
-            LogMessage(message, "SERVER START");
+            LogMessage(message, "SERVER STARTED"); //Add Type of Log to Messag
         }
         /// <summary>
         /// A method to log response stop messages
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">Message to be logged</param>
         public void LogResponse(string message)
         {
-            LogMessage(message, "RESPONSE");
+            LogMessage(message, "RESPONSE"); //Add Type of Log to Messag
         }
         /// <summary>
         /// A method to log request messages
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">Message to be logged</param>
         public void LogRequest(string message)
         {
-            LogMessage(message, "REQUEST");
+            LogMessage(message, "REQUEST"); //Add Type of Log to Messag
         }
         /// <summary>
-        /// A method to log application startup messages
+        /// A method to clear the log on program startup
         /// </summary>
-        /// <param name="message"></param>
-        public void LogStartup(string message)
-        {
-            LogMessage(message, "APPLICATION STARTUP");
-        }
         public void ClearLog()
         {
             try
@@ -85,7 +77,7 @@ namespace myOwnWebServer
                 {
                     File.Delete(fileName);
                 }
-                File.WriteAllText(fileName, string.Empty);
+                File.WriteAllText(fileName, string.Empty); //Create empty file
             }
             catch (Exception ex)
             {

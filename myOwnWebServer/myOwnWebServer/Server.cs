@@ -13,18 +13,20 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 
 
 namespace myOwnWebServer
 {
     internal class Server
     {
+        //Class Varaibles
         private Logger logger = new Logger();
         private string webRoot = "";
         private string webIP = "";
         private int webPort = 0;
         private IPAddress ipAddress;
+
+        //Constructor to pass webroot, IP and port number
         public Server(string root, string IP, int port)
         {
             webRoot = root;
@@ -38,12 +40,12 @@ namespace myOwnWebServer
         {
             bool validIP = false;
             TcpListener server = null;
-            validIP = ConvertIPAddressPort();
+            validIP = ConvertIPAddressPort(); //Get IP address
             if (validIP)
             {
                 try
                 {
-                    server = new TcpListener(ipAddress, webPort);
+                    server = new TcpListener(ipAddress, webPort); 
                     server.Start();
                     while (true)
                     {
@@ -51,7 +53,7 @@ namespace myOwnWebServer
 
                         ResponseWorker worker = new ResponseWorker(client, webRoot, logger, ipAddress, webPort);
 
-                        worker.ProcessRequest();
+                        worker.ProcessRequest(); //Send request to be processed
 
                         client.Close();
                     }
@@ -72,8 +74,8 @@ namespace myOwnWebServer
             {
                 logger.LogError("Invalid IP Address: " + webIP);
             }
-
         }
+
         /// <summary>
         /// A method to convert string IP address to IPAddress type
         /// </summary>
@@ -83,7 +85,7 @@ namespace myOwnWebServer
             string ipString = webIP;
             IPAddress checkIP = null;
 
-            bool check = IPAddress.TryParse(ipString, out checkIP);
+            bool check = IPAddress.TryParse(ipString, out checkIP); //Convert to IP data type
             if ((check))
             {
                 ipAddress = checkIP;

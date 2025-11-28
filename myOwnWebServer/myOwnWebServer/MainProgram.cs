@@ -12,15 +12,12 @@
 // References: Dirctoray Exits : https://learn.microsoft.com/en-us/dotnet/api/system.io.directory.exists?view=net-10.0
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace myOwnWebServer
 {
     internal class MainProgram
     {
+       //Class Variables
        private string webRoot = "";
        private string webIP = "";
        private int webPort = 0;
@@ -29,8 +26,7 @@ namespace myOwnWebServer
         {
             Logger logger = new Logger();
             logger.ClearLog();
-            logger.LogStartup("Starting myOwnWebServer...");
-
+           
             MainProgram mainProgram = new MainProgram(); //Need this since ParseArguments is not static and variables are not static
 
             if (args.Length == 3)
@@ -43,7 +39,7 @@ namespace myOwnWebServer
                 {
                     if (checkFolder && checkPort){ //Check if folder exists and port is valid
                         Server server = new Server(mainProgram.webRoot, mainProgram.webIP, mainProgram.webPort);
-                        logger.LogServerStart($"Server started at IP: {mainProgram.webIP}, Port: {mainProgram.webPort}, Web Root: {mainProgram.webRoot}");
+                        logger.LogServerStart($"WebRoot={mainProgram.webRoot}, WebIP={mainProgram.webIP}, WebPort={mainProgram.webPort}");
                         server.Start();
                     }
                     else
@@ -64,14 +60,14 @@ namespace myOwnWebServer
         /// <summary>
         /// A method to parse command line arguments
         /// </summary>
-        /// <param name="args"></param>
+        /// <param name="args">Command line agruments to be parsed</param>
         /// <returns></returns>
         public bool ParseArguments(string[] args)
         {
             bool check = true;
             foreach (string arg in args)
             {
-                if (arg.StartsWith("-webRoot="))
+                if (arg.StartsWith("-webRoot=")) //Check for webroot
                 {
                     string value = arg.Substring("-webRoot=".Length);
 
@@ -85,7 +81,7 @@ namespace myOwnWebServer
                         break;
                     }
                 }
-                else if (arg.StartsWith("-webIP="))
+                else if (arg.StartsWith("-webIP=")) //Check for IP
                 {
                     string value = arg.Substring("-webIP=".Length);
 
@@ -99,7 +95,7 @@ namespace myOwnWebServer
                         break;
                     }
                 }
-                else if (arg.StartsWith("-webPort="))
+                else if (arg.StartsWith("-webPort=")) //Check for Port
                 {
                     string value = arg.Substring("-webPort=".Length);
                     int port = 0;
