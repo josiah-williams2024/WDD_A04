@@ -49,7 +49,7 @@ namespace myOwnWebServer
                     {
                         TcpClient client = server.AcceptTcpClient();
 
-                        ResponseWorker worker = new ResponseWorker(client, webRoot, logger,ipAddress,webPort);
+                        ResponseWorker worker = new ResponseWorker(client, webRoot, logger, ipAddress, webPort);
 
                         worker.ProcessRequest();
 
@@ -62,7 +62,7 @@ namespace myOwnWebServer
                 }
                 finally
                 {
-                    if(server != null)
+                    if (server != null)
                     {
                         server.Stop();
                     }
@@ -90,70 +90,6 @@ namespace myOwnWebServer
             }
             return check;
         }
-        public void sendRequestTakeResult(object sender,string IpAddress,String IpPort, EventArgs e)
-        {    //this will store space for return data
-            byte[] data = new byte[8192];
-            string strRequest, stringData;
-            string errorMessage = "";
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(IpAddress), Convert.ToInt32(IpPort));
-            // create socket
-            Socket server = new Socket(AddressFamily.InterNetwork,
-                                       SocketType.Stream,
-                                       ProtocolType.Tcp);
-
-            try
-            {
-                server.Connect(ipep);
-            }
-            catch (SocketException ex)
-            {
-                errorMessage += "Unable to connect to server.";
-                errorMessage += ex.ToString();
-                errorMessage += IpAddress;
-                errorMessage += IpPort;
-                Console.WriteLine(errorMessage);
-                logger.LogError(errorMessage);
-                return;
-            }
-
-
-
-            //strRequest = txtRequest.Text;
-            //server.Send(Encoding.ASCII.GetBytes(strRequest));   // send off the request
-
-            System.Threading.Thread.Sleep(1000);
-
-            int recv = 0;
-            while (server.Available > 0)                          // let's read the response and print it out
-            {
-                recv = server.Receive(data);
-
-                stringData = Encoding.ASCII.GetString(data, 0, recv);
-
-                // check if this is an image being returned ... the HTTPTool doesn't have the ability to 
-                // support an image in the RESPONSE window ... so don't encode the returned data into ASCII 
-                //   -- instead, output "IMAGE CONTENTS"
-                //   -- assuming that the first occurance of the "\r\n\r\n" happens just before the encoded image contents
-                //
-                int isImage = stringData.IndexOf("Content-Type: image/jpeg");
-                if (isImage > 0)
-                {
-                    // find the \r\n\r\n and cut the string short at that point
-                    int imageStart = stringData.IndexOf("\r\n\r\n");
-                    //txtReceiveDisplay.Text += stringData.Substring(0, imageStart) + "\r\n\r\n[IMAGE DATA Found Here ...]\r\n";
-
-                }
-                else
-                {
-                    //txtReceiveDisplay.Text += stringData + "\r\n";      // simply add the entire response
-                }
-            }
-
-
-            //txtReceiveDisplay.Text += "Disconnecting from server...\r\n";
-            server.Shutdown(SocketShutdown.Both);
-            server.Close();
-
-        }
+        
     }
 }

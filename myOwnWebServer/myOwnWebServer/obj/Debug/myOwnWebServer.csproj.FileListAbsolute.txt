@@ -6,3 +6,10 @@ C:\Users\josia\OneDrive\Desktop\tempSource\myOwnWebServer\myOwnWebServer\obj\Deb
 C:\Users\josia\OneDrive\Desktop\tempSource\myOwnWebServer\myOwnWebServer\obj\Debug\myOwnWebServer.exe
 C:\Users\josia\OneDrive\Desktop\tempSource\myOwnWebServer\myOwnWebServer\obj\Debug\myOwnWebServer.pdb
 C:\Users\josia\OneDrive\Desktop\tempSource\myOwnWebServer\myOwnWebServer\obj\Debug\myOwnWebServer.exe.config
+C:\Users\gz\Desktop\Github\WDD_A04\myOwnWebServer\myOwnWebServer\bin\Debug\myOwnWebServer.exe.config
+C:\Users\gz\Desktop\Github\WDD_A04\myOwnWebServer\myOwnWebServer\bin\Debug\myOwnWebServer.exe
+C:\Users\gz\Desktop\Github\WDD_A04\myOwnWebServer\myOwnWebServer\bin\Debug\myOwnWebServer.pdb
+C:\Users\gz\Desktop\Github\WDD_A04\myOwnWebServer\myOwnWebServer\obj\Debug\myOwnWebServer.csproj.AssemblyReference.cache
+C:\Users\gz\Desktop\Github\WDD_A04\myOwnWebServer\myOwnWebServer\obj\Debug\myOwnWebServer.csproj.CoreCompileInputs.cache
+C:\Users\gz\Desktop\Github\WDD_A04\myOwnWebServer\myOwnWebServer\obj\Debug\myOwnWebServer.exe
+C:\Users\gz\Desktop\Github\WDD_A04\myOwnWebServer\myOwnWebServer\obj\Debug\myOwnWebServer.pdb

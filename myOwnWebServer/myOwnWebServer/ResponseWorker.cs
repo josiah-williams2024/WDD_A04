@@ -12,6 +12,8 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.IO;
+using System.Runtime.Remoting.Messaging;
 
 
 namespace myOwnWebServer
@@ -68,20 +70,135 @@ namespace myOwnWebServer
                 clientWorker.Close();
             }
         }
+        public void sendErrorResponse(int statusCode, string reasonPhrase)
+        {
 
+            string body = statusCode + " " + reasonPhrase;
+            string statusLine = "HTTP/1.1 " + statusCode + " " + reasonPhrase + "\r\n";
+
+
+            string headers =
+                "Content-Type: text/plain\r\n" +
+                "Content-Length: " + Encoding.UTF8.GetByteCount(body) + "\r\n" +
+                "Server: myOwnWebServer\r\n" +
+                "Date: " + DateTime.UtcNow.ToString("R") + "\r\n" +
+                "\r\n";
+            byte[] headerBytes = Encoding.ASCII.GetBytes(statusLine + headers);
+            byte[] bodyBytes = Encoding.UTF8.GetBytes(body);
+
+            try
+            {
+                NetworkStream stream = clientWorker.GetStream();
+                stream.Write(headerBytes, 0, headerBytes.Length);
+                stream.Write(bodyBytes, 0, bodyBytes.Length);
+                stream.Flush();
+
+                // 按要求：非 200 的响应，日志只写状态码
+                logger.LogResponse($"Status={statusCode}");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("Error sending error response: " + ex.Message);
+            }
+        }
         public void ManageRequest(string message)
         {
-           bool check = ParseRequest(message);
-           bool methodCheck = false;
-            if (check)
+            //check the request in order
+            bool parseOk = ParseRequest(message);
+
+            if (!parseOk)
             {
-                methodCheck = CheckMethodType(httpMethod);
-                //Continue the request management based on method type
-
-
+                // error return 400
+                sendErrorResponse(400, "Bad Request");
+                return;
             }
 
+            //check are they GET
+            bool methodOk = CheckMethodType(httpMethod);
+            if (!methodOk)
+            {
+                // if not get 
+                sendErrorResponse(405, "Method Not Allowed");
+                return;
+            }
+            try
+            {
+                //transfer resource _> local 
+                string resourcePath = httpResource;
+
+                // get out ot the /
+                if (resourcePath.StartsWith("/"))
+                {
+                    resourcePath = resourcePath.Substring(1);
+                }
+
+                
+
+                // give full path
+                string fullPath = Path.Combine(webRootWorker, resourcePath);
+
+                if (!File.Exists(fullPath))
+                {
+                    // not exist
+                    sendErrorResponse(404, "Not Found");
+                    return;
+                }
+
+                // read document
+                byte[] bodyBytes = File.ReadAllBytes(fullPath);
+
+                //  see the end of the file to get mime type
+                string mimeType = GetMimeType(fullPath);
+
+                // return header
+                string statusLine = httpVersion + " 200 OK\r\n";
+                string headers =
+                    "Content-Type: " + mimeType + "\r\n" +
+                    "Content-Length: " + bodyBytes.Length + "\r\n" +
+                    "Server: myOwnWebServer\r\n" +
+                    "Date: " + DateTime.UtcNow.ToString("R") + "\r\n" +
+                    "\r\n";
+
+                byte[] headerBytes = Encoding.ASCII.GetBytes(statusLine + headers);
+
+                //write back 
+                NetworkStream stream = clientWorker.GetStream();
+                stream.Write(headerBytes, 0, headerBytes.Length);
+                stream.Write(bodyBytes, 0, bodyBytes.Length);
+                stream.Flush();
+
+                //write 200 on header
+                logger.LogResponse($"Content-Type={mimeType}; Content-Length={bodyBytes.Length}; Server=myOwnWebServer; Date={DateTime.UtcNow:R}");
+            }
+            catch (Exception ex)
+            {
+                // error
+                logger.LogError("Error handling request: " + ex.Message);
+                sendErrorResponse(500, "Internal Server Error");
+            }
+        
         }
+            private string GetMimeType(string filePath)
+        {
+            string ext = Path.GetExtension(filePath).ToLowerInvariant();
+
+            switch (ext)
+            {
+                case ".html":
+                case ".htm":
+                    return "text/html";
+                case ".txt":
+                    return "text/plain";
+                case ".jpg":
+                case ".jpeg":
+                    return "image/jpeg";
+                case ".gif":
+                    return "image/gif";
+                default:
+                    return null;
+            }
+        }
+        
         // A method to send response back to client not done just based on example
         public void SendResponse(string responseString)
         {
