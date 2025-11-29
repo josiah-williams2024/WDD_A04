@@ -8,6 +8,8 @@
 // Purpose            : This is where we https response logic will be handled.
 //
 // References: NetworkStream: https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.networkstream?view=net-10.0
+//reference'https://learn.microsoft.com/en-us/dotnet/api/system.io.path.combine?view=net-10.0
+//reference https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#the-rfc1123-r-r-format-specifier
 using System;
 using System.Net;
 using System.Net.Sockets;
@@ -76,7 +78,7 @@ namespace myOwnWebServer
 
             string body = statusCode + " " + reasonPhrase;
             string statusLine = "HTTP/1.1 " + statusCode + " " + reasonPhrase + "\r\n";
-
+            //this is the format for header
             string headers =
                 "Content-Type: text/plain\r\n" +
                 "Content-Length: " + Encoding.UTF8.GetByteCount(body) + "\r\n" +
@@ -88,13 +90,13 @@ namespace myOwnWebServer
             byte[] bodyBytes = Encoding.UTF8.GetBytes(body);
 
             try
-            {
+            {//stream to write 
                 NetworkStream stream = clientWorker.GetStream();
                 stream.Write(headerBytes, 0, headerBytes.Length);
                 stream.Write(bodyBytes, 0, bodyBytes.Length);
                 stream.Flush();
 
-                // 按要求：非 200 的响应，日志只写状态码
+                // if note resso will write into
                 logger.LogResponse(statusCode.ToString());
             }
             catch (Exception ex)
@@ -166,7 +168,8 @@ namespace myOwnWebServer
                 stream.Write(bodyBytes, 0, bodyBytes.Length);
                 stream.Flush();
 
-                logger.LogResponse($"200 OK"); //write 200 on header
+                string logMsg = $"content-type={mimeType}, content-length={bodyBytes.Length}, server=myOwnWebServer, date={DateTime.UtcNow.ToString("R")}";
+                logger.LogResponse(logMsg);
             }
             catch (Exception ex)
             {

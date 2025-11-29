@@ -1,1 +1,2 @@
-2025-11-28 13:10:06 [SERVER START] - Server started at IP: 127.0.0.1, Port: 5300, Web Root: C:\localWebsite
+2025-11-28 21:10:01 [SERVER STARTED] - WebRoot=C:\localWebSite, WebIP=127.0.0.1, WebPort=80
+2025-11-28 21:10:02 [ERROR] - SocketException: An attempt was made to access a socket in a way forbidden by its access permissions
